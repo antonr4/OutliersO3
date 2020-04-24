@@ -1,8 +1,8 @@
 Package: OutliersO3
 Type: Package
 Title: Draws Overview of Outliers (O3) Plots
-Version: 0.6.2
-Date: 2019-03-27
+Version: 0.6.3
+Date: 2020-04-27
 Author: Antony Unwin
 Maintainer: Antony Unwin <unwin@math.uni-augsburg.de>
 Description: Potential outliers are identified for all combinations of a dataset's variables. O3 plots are described in Unwin(2019) <doi:10.1080/10618600.2019.1575226>. The available methods are HDoutliers() from the package 'HDoutliers', FastPCS() from the package 'FastPCS', mvBACON() from 'robustX', adjOutlyingness() from 'robustbase', DectectDeviatingCells() from 'cellWise', covMcd() from 'robustbase'.

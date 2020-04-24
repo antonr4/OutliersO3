@@ -39,6 +39,8 @@ data(banknote, package="mclust")
 data <- banknote %>% filter(Status=="genuine") %>% select(-Status)
 pB <- O3prep(data, method="BAC", tols=c(0.05, 0.01, 0.001), boxplotLimits=c(6,10,12))
 pX <- O3plotT(pB)
+#> Warning: Vectorized input to `element_text()` is not officially supported.
+#> Results may be unexpected or may change in future versions of ggplot2.
 pX$gO3
 ```
 
