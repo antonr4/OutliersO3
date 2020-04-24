@@ -1,0 +1,70 @@
+Outliers03 v0.6.2 (Release date: 2019-03-27)
+==============
+Reference added to JCGS article on O3 plots (in press).
+Dataset Election2005 included in package, so that \pkg{mbgraphic} is no longer suggested.
+Some small additions to help files.
+
+Outliers03 v0.6.1 (Release date: 2019-02-27)
+==============
+The authors of the package cellWise have renamed their function DetectDeviatingCells DDC and this required a minor code change in OutliersO3 and amendments to help files.
+
+Outliers03 v0.6 (Release date: 2019-01-21)
+==============
+(Thanks to anonymous referees and not-so-anonymous JCGS editors for suggesting some of these changes.)
+
+Use mvBacon and covMcd for their respective 1-d outliers and not boxplot limits.
+
+Changed the chi-square degrees of freedom used in setting thresholds for covMcd to number of variables in subspace from number of variables in dataset.
+
+Added legends to O3 plots and no longer include plot titles.
+
+There are now two white columns separating the left and right blocks of O3 plots.
+
+Added the options sortVars (whether variables in an O3 plot are sorted or not) and coltxtsize (text size of column names) to O3plotT and O3plotM.
+
+Simplified entry for the boxplotLimits parameter vector.
+
+
+Outliers03 v0.5.4 (Release date: 2018-02-08)
+==============
+Corrected the index entries for the vignettes so that they are all different.
+
+
+Outliers03 v0.5.3 (Release date: 2018-02-06)
+==============
+Relaxed the dependence on R from ≥ R 3.4.0 to ≥ R 3.3.0 to ensure that the package would run under r-oldrel-osx-x86_64 and thus pass all CRAN package checks.
+
+
+Outliers03 v0.5.1 (Release date: 2018-02-05)
+==============
+There are three major changes to the package.
+
+1) The main function O3plot has been split into three parts.  O3prep sets up a list of lists of outlier indices and distances to be plotted by O3plotM (if more than one outlier method is involved) or by O3plotT (if the plot is for one method and up to 3 different tolerance levels).  Separating preparation and plotting means that users can prepare outlier results with their own methods and code to then draw and O3 plot with this package.
+
+2) If an O3 plot is to be drawn for more than one method, then the outlier tolerance levels can be set individually for each method.  This is now the default as using the same levels for all methods was rarely satisfactory.  A vignette has been added to illustrate this.
+
+3) Argument names have been "R-standardised" and internal functions hidden.  (Thanks to Michael Friendly for helpful comments and to Bill Venables for sage advice.)
+
+The output now includes a table of all outliers found by case, variable combination, and method/tolerance level.  It also includes a three-dimensional array of all the outlier distances/scores by variable combination by method for all methods that provide them.
+
+Two further plots have been added, an O3 plot for more than two methods in which only case combinations identified by at least two outliers are displayed, and a parallel coordinate plot of outlier distances (when provided by methods) either by methods (O3plotM) or by combinations (O3plotT).
+
+The method covMcd{robustbase} has been added as an optional method.
+
+For an O3 plot with one method and more than one outlier level, you can enter the levels in the arguments tols and boxplotLimits in any order. (Thanks to Tae-Rae Kim for this suggestion.)
+
+For an O3 plot with more than one method, you can enter the methods in any order.
+
+If a dataset includes case identifiers, then these can be used as labels for the case columns in the O3 plot through the argument caseNames.
+
+O3 plot rows are now sorted by numbers of outliers within size of variable combinations. (Thanks to Nina Wu for pointing out that this was not working as intended.)
+
+The default colours in an O3 plot for comparing two methods have been changed to be more distinctive.
+
+Colours can be specified using either colours or colors (or col) in O3plotColours.
+
+
+Outliers03 v0.2.1 (Release date: 2017-09-26)
+==============
+
+First version on CRAN.
