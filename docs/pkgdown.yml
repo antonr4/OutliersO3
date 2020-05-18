@@ -1,0 +1,10 @@
+pandoc: 2.3.1
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  DrawingO3plots: DrawingO3plots.html
+  MultTolLevels: MultTolLevels.html
+  PCPsO3: PCPsO3.html
+  xtraO3methods: xtraO3methods.html
+last_built: 2020-05-18T16:33Z
+
