@@ -1,7 +1,7 @@
 # quiets concerns of R CMD check
 if(getRversion() >= "2.15.1")  utils::globalVariables(c("ID",
             "outlierIndices", "pID", "psN", "psNx", "sB", "s1B",
-            "sN", "sumR", "sumS", "sumV", "xsumR", "oh", "HDo", "case", "Case", "X", "SsB"))
+            "sN", "sumR", "sumS", "sumV", "xsumR", "oh", "case", "Case", "X", "SsB"))
 
 # Main function--------------
 
@@ -121,7 +121,7 @@ outList <- outResults$outList
       axis.text.x = element_text(size=coltxtsize, angle=45, hjust=0, vjust=0),
       axis.ticks.y = element_blank(), axis.text.y = element_blank()) +
       scale_x_discrete(position = "top") +
-      geom_hline(yintercept = tw, lty = 3, colour = "blue", size=0.75)
+      geom_hline(yintercept = tw, lty = 3, colour = "blue", linewidth=0.75)
       if (mx == 2) {
          gO3 <- ga  + scale_fill_manual(name = "Outliers identified by", values = outCols,
       breaks=c("3.01", "3.02", "6.03"), labels=c(mm[1], mm[2], "both"))
@@ -217,10 +217,7 @@ outList <- outResults$outList
         Cx$oh <- rep(0, n2)
         Cx[l2a, "oh"] <- "A"
         colnames(Cx) <- c(mm, "oh")
-        if("HDo" %in% mm) {
-        Cx <- Cx %>% select(-HDo) #HDo provides no distances
-        }
-        mx <- length(mm)-1*("HDo" %in% mm)
+        mx <- length(mm)
         if(mx > 1) {
         gc <- ggparcoord(Cx %>% arrange(oh), scale = "uniminmax", columns=1:mx,
           groupColumn="oh") + labs(x = NULL, y = NULL) +

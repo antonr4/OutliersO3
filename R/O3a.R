@@ -3,16 +3,6 @@
 O3a <- function(ouF, k1=k1, K=K, mm=mm, tol=tol, boxplotLimit=boxplotLimit, n1=n1, n2=n2) {
 
 # Choice of method----------------------------
-  if (mm == "HDo") {
-    xloop <- function(k) {
-      utils::combn(names(ouF), k, FUN = function(vars) {
-        list(variables = noquote(vars),
-        outlierIndices = as.vector(as.integer(HDoutliers::HDoutliers(ouF[ , vars],
-        alpha = tol))),
-        outDist = rep(NA, n2))
-        }, simplify = FALSE)
-      }
-    }
   if (mm == "PCS") {
     xloop <- function(k) {
       utils::combn(names(ouF), k, FUN = function(vars) {
@@ -86,17 +76,6 @@ if (mm == "MCD") {
 #   }
 #  }
 
-# if (mm == "sHDo") {
-#    xloop <- function(k) {
-#      utils::combn(names(ouF), k, FUN = function(vars) {
-#        list(variables = noquote(vars),
-#        outlierIndices = as.vector(as.integer(stray::find_HDoutliers(ouF[ , vars],
-#        alpha = tol))),
-#        outDist = rep(NA, n2))
-#        }, simplify = FALSE)
-#      }
-#    }
-
 # Would using chisq be what the CS people intend?
 # if (mm == "hdb") {
 #    xloop <- function(k) {
@@ -130,7 +109,7 @@ if (mm == "MCD") {
       }
     }
 
-  if (mm %in% c("HDo", "BAC", "adjOut", "MCD")| k1 > 1) {
+  if (mm %in% c("BAC", "adjOut", "MCD")| k1 > 1) {
     suspects <- lapply(k1:K, xloop)
     suspects <- unlist(suspects, recursive = FALSE)
     }

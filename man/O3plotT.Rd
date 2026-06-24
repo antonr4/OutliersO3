@@ -63,7 +63,7 @@ Antony Unwin unwin@math.uni-augsburg.de
 }
 
 
-\seealso{\code{\link{O3plotColours}}, \code{\link[HDoutliers]{HDoutliers}} in \pkg{HDoutliers}, \code{\link[FastPCS]{FastPCS}} in \pkg{FastPCS}, \code{\link[robustX]{mvBACON}} in \pkg{robustX}, \code{\link[robustbase]{adjOutlyingness}} in \pkg{robustbase}, \code{\link[cellWise]{DDC}} in \pkg{cellWise}, \code{\link[robustbase]{covMcd}} in \pkg{robustbase}
+\seealso{\code{\link{O3plotColours}}, \code{\link[FastPCS]{FastPCS}} in \pkg{FastPCS}, \code{\link[robustX]{mvBACON}} in \pkg{robustX}, \code{\link[robustbase]{adjOutlyingness}} in \pkg{robustbase}, \code{\link[cellWise]{DDC}} in \pkg{cellWise}, \code{\link[robustbase]{covMcd}} in \pkg{robustbase}
 }
 \examples{
 a0 <- O3prep(stackloss, method="PCS", tols=0.05, boxplotLimits=3)

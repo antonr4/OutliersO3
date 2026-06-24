@@ -1,3 +1,7 @@
+Outliers03 v0.7 (Release date: 2026-07-27)
+==============
+Dropped the HDoutliers method, as the package HDoutliers is no longer maintained.
+
 Outliers03 v0.6.3 (Release date: 2020-04-27)
 ==============
 Changed how labels are drawn because "Vectorized input to `element_text()` is not officially supported" by ggplot2.

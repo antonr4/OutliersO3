@@ -116,7 +116,7 @@ outList <- outResults$outList
       axis.text.x = element_text(size=coltxtsize, angle=45, hjust=0, vjust=0),
       axis.ticks.y = element_blank(), axis.text.y = element_blank()) +
       scale_x_discrete(position = "top") +
-      geom_hline(yintercept = tw, lty = 3, colour = "blue", size=0.75)
+      geom_hline(yintercept = tw, lty = 3, colour = "blue", linewidth=0.75)
     if (mxm == 3) {
       gO3 <- ga + scale_fill_manual(name = paste0("Outliers identified by ", mm , " at tolerances"), values = outCols,
       breaks=c("3", "4", "5"), labels=c(tols[1], tols[2], tols[3]))
@@ -168,16 +168,13 @@ outList <- outResults$outList
         Cases <- data.frame(caseNames, Case=1:nrow(outResults$data))
         outy <- merge(outs, Cases, by.x = "Name", by.y = "caseNames")
 
-# Draw a pcp of method distances (scores) with lowest tol outliers highlighted unless method is HDo
+# Draw a pcp of method distances (scores) with lowest tol outliers highlighted
         if(nw > 1) {
           dimnames(Ds)[[2]] <- rownames(zz)
         } else {
           dimnames(Ds)[[2]] <- list(rownames(zz))
         }
         dimnames(Ds)[[3]] <- paste0("T", tols)
-        if(mm=="HDo"|nw == 1) {
-           return(list(nOut = nOut, gpcp = gpcp, gO3 = gO3, outsTable = outy, Ds = Ds))
-        } else {
         Dx <- data.frame(Ds[ , , mxm])
         Dx$oh <- rep(0, n2)
         Dx[l1a[[mxm]], "oh"] <- "A"
@@ -191,6 +188,5 @@ outList <- outResults$outList
         gCombs <- gd  + ggtitle(paste("Scores for each combination using\n method", mm, "with outliers highlighted"))
 
     return(list(nOut = nOut, gpcp = gpcp, gO3 = gO3, gCombs = gCombs, outsTable = outy, Ds = Ds))
-    }
   }
 }

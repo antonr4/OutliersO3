@@ -13,7 +13,7 @@ vignette: >
 
 
 ## Introduction
-OutliersO3 includes access to six different methods available in R for identifying possible outliers.  If you want to use another outlier method (or use one of the available ones, but with some different parameters) to draw an O3 plot, this is what you have to do.
+OutliersO3 includes access to five different methods available in R for identifying possible outliers.  If you want to use another outlier method (or use one of the available ones, but with some different parameters) to draw an O3 plot, this is what you have to do.
 
 ## Using a single new method with up to 3 tolerance levels.
 Prepare a list called **outResults** made up of the following elements:  
@@ -25,7 +25,7 @@ Prepare a list called **outResults** made up of the following elements:
 
 **outResults** can then be input to the function O3plotT to draw the corresponding O3 plot.
 
-(Note that if your method does not work for one dimension, like, for instance, FastPCS, you should add a univariate approach.  OutliersO3 uses boxplot limits in that situation.)
+(Note that if your method does not work for one dimension, like, for instance, `FastPCS`, you should add a univariate approach.  OutliersO3 uses boxplot limits in that situation.)
 
 ## Using one of more new methods and adding their results to results for methods in OutliersO3.
 
@@ -45,5 +45,5 @@ __outResults__ is constructed as above and input to the function O3plotM to draw
 NB __outList1__ and __outList2__ have to use the same dataset and the same nw combinations. 
 
 ## Tips for constructing an outResults list.  
-There are two issues: each outlier method has its own structure, parameters, and output, and outliers need to be identified for many different combinations of variables.  The O3a function in the OutliersO3 package shows how to run through the variable combinations and includes code for six different methods.  It is likely that you can use ideas from one of more of these to determine how your method could be coded.  
+There are two issues: each outlier method has its own structure, parameters, and output, and outliers need to be identified for many different combinations of variables.  The O3a function in the OutliersO3 package shows how to run through the variable combinations and includes code for five different methods.  It is likely that you can use ideas from one of more of these to determine how your method could be coded.  
 The appropriate mapply R function used in the O3prep function can then be employed to produce the outList list element of an outResults list to be used as input for an O3plot function.

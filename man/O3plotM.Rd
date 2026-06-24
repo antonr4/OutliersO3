@@ -68,17 +68,17 @@ Antony Unwin unwin@math.uni-augsburg.de
 
 
 
-\seealso{\code{\link{O3plotColours}}, \code{\link[HDoutliers]{HDoutliers}} in \pkg{HDoutliers}, \code{\link[FastPCS]{FastPCS}} in \pkg{FastPCS}, \code{\link[robustX]{mvBACON}} in \pkg{robustX}, \code{\link[robustbase]{adjOutlyingness}} in \pkg{robustbase}, \code{\link[cellWise]{DDC}} in \pkg{cellWise}, \code{\link[robustbase]{covMcd}} in \pkg{robustbase}
+\seealso{\code{\link{O3plotColours}}, \code{\link[FastPCS]{FastPCS}} in \pkg{FastPCS}, \code{\link[robustX]{mvBACON}} in \pkg{robustX}, \code{\link[robustbase]{adjOutlyingness}} in \pkg{robustbase}, \code{\link[cellWise]{DDC}} in \pkg{cellWise}, \code{\link[robustbase]{covMcd}} in \pkg{robustbase}
 }
 \examples{
-c1 <- O3prep(stackloss, k1=2, method=c("HDo", "BAC"), tolHDo=0.025, tolBAC=0.01)
+c1 <- O3prep(stackloss, k1=2, method=c("PCS", "BAC"), tolPCS=0.01, tolBAC=0.01)
 c2 <- O3plotM(c1)
 c2$nOut
 c2$gpcp
 c2$gO3
 
 \dontrun{
-b1 <- O3prep(stackloss, method=c("HDo", "BAC", "DDC"), tolHDo=0.025, tolBAC=0.01, tolDDC=0.05)
+b1 <- O3prep(stackloss, method=c("PCS", "BAC", "DDC"), tolPCS=0.01, tolBAC=0.01, tolDDC=0.05)
 b2 <- O3plotM(b1)
 b2$nOut
 b2$gpcp

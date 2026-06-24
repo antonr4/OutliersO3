@@ -30,7 +30,7 @@ This dataset has been taken from the package \pkg{mbgraphic} of Katrin Grimm.
 }
 
 \source{
-Original source was \url{http://www.bundeswahlleiter.de}.
+Original source was \url{https://www.bundeswahlleiterin.de/}.
 }
 
 \examples{

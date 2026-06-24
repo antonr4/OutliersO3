@@ -31,7 +31,7 @@ library(GGally)
 library(OutliersO3)
 data(Election2005)
 data <- Election2005[, c(6, 10, 17, 28)]
-O3p <- O3prep(data, method=c("HDo", "PCS", "BAC", "adjOut", "DDC", "MCD"))
+O3p <- O3prep(data, method=c("PCS", "BAC", "adjOut", "DDC", "MCD"))
 O3p1 <- O3plotM(O3p)
 
 #Create and add the new highlighting variable to the dataset
@@ -51,21 +51,18 @@ legend.position = "none", axis.ticks.y = element_blank(),
 axis.text.y = element_blank())
 gp
 ```
-Fig 1: A parallel coordinate plot of the four variables from the Election2005 dataset with the outliers highlighted that are identified for the whole dataset by at least one of the six methods.  All nine outliers have a small area (Flaeche) and a high population density (BDichte).
+Fig 1: A parallel coordinate plot of the four variables from the Election2005 dataset with the outliers highlighted that are identified for the whole dataset by at least one of the five methods.  Nine outliers have a small area (Flaeche) and a high population density (BDichte), while one is the opposite.
 
 The second example uses the same highlighting variable, but for highlighting the outlier distances pcp.  Again the plotting code is taken from O3plotM.
 
 ```{r fig.width=6, fig.height=4, fig.align='center'}
-mm <- c("HDo", "PCS", "BAC", "adjOut", "DDC", "MCD")
+mm <- c("PCS", "BAC", "adjOut", "DDC", "MCD")
 #Create the dataset of distances and add the new highlighting variable from the first example
 Cx <- data.frame(O3p1$Cs[ , "c1111", ])
 Cx$oh <- ouFx$oh
 colnames(Cx) <- c(mm, "oh")
 #Use plotting code from O3plotM
-if("HDo" %in% mm) {
-Cx <- Cx %>% select(-HDo) #HDo provides no distances
-}
-mx <- length(mm)-1*("HDo" %in% mm)
+mx <- length(mm)
 gc <- ggparcoord(Cx %>% arrange(oh), scale = "uniminmax", columns=1:mx,
 groupColumn="oh") + labs(x = NULL, y = NULL) +
 scale_colour_manual(values = c("grey70", "red")) +
@@ -75,7 +72,7 @@ axis.text.y = element_blank())
 gMethods <- gc  + ggtitle(paste("Distances for each method with outliers highlighted"))
 gc
 ```
-Fig 2: A parallel coordinate plot of the outlier scores reported by the different methods (excluding `HDoutliers`, which does not calculate scores).  Cases identified as outliers for the full dataset are highlighted.  `PCS` and `BAC` give similar results.
+Fig 2: A parallel coordinate plot of the outlier scores reported by the different methods.  Cases identified as outliers for the full dataset are highlighted.  `PCS` and `BAC` give similar results.
 
 Other highlighting variables might include highlighting for other combinations or highlighting for particular methods.  Or you might want to explore the data with other graphical tools.
 

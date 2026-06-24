@@ -39,7 +39,7 @@ Antony Unwin unwin@math.uni-augsburg.de
 \seealso{\code{\link{O3plotM}} and \code{\link{O3plotT}}}
 
 \examples{
-c1 <- O3prep(stackloss, k1=2, method=c("HDo", "BAC"), tolHDo=0.025, tolBAC=0.01)
+c1 <- O3prep(stackloss, k1=2, method=c("PCS", "BAC"), tolPCS=0.001, tolBAC=0.01)
 c2 <- O3plotM(c1)
 c2$gO3
 col1 <- O3plotColours(colours=c("khaki", "yellow", "red", "darkseagreen", "gold1",

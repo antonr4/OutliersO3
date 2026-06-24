@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 OutliersO3 is for visualising results of outlier analyses.  Overview of Outliers (O3) plots show which cases are identified as potential outliers for different combinations of variables from a dataset.
 
-You can compare sets of outliers identified by up to six different methods.  You can also compare results for a single method at up to three different tolerance levels.
+You can compare sets of outliers identified by up to five different methods.  You can also compare results for a single method at up to three different tolerance levels.
 
 ## Install in the usual way
 install.packages("OutliersO3")

@@ -5,14 +5,14 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("ID",
 
 # Main function--------------
 
-O3prep <- function(data, k1=1, K=ncol(data), method="HDo",
+O3prep <- function(data, k1=1, K=ncol(data), method="PCS",
             tols=0.05, boxplotLimits=c(6, 10, 12),
-     tolHDo=0.05, tolPCS=0.01, tolBAC=0.001, toladj=0.05, tolDDC=0.01, tolMCD=0.000001) {
+     tolPCS=0.01, tolBAC=0.001, toladj=0.05, tolDDC=0.01, tolMCD=0.000001) {
   ouF <- data.frame(data) #in case the dataset is a tibble
 
 # Put methods in a standard order and check they are OK
-#  mz <- c("HDo", "PCS", "BAC", "adjOut", "DDC", "MCD", "sHDo")
-  mz <- c("HDo", "PCS", "BAC", "adjOut", "DDC", "MCD")
+#  mz <- c("PCS", "BAC", "adjOut", "DDC", "MCD", "sHDo")
+  mz <- c("PCS", "BAC", "adjOut", "DDC", "MCD")
   mm <- intersect(mz, method)
   if(!setequal(mm, method))
   stop("unavailable method(s) requested: ", paste(setdiff(method, mm), collapse = ", "))
@@ -55,7 +55,6 @@ O3prep <- function(data, k1=1, K=ncol(data), method="HDo",
 # stopifnot(length(unique(tols)) == length(unique(boxplotLimits)))
   ua <- length(tols)
 
-  stopifnot(tolHDo >= 0, tolHDo < 1)
   stopifnot(tolPCS >= 0, tolPCS <= 0.5)
   stopifnot(tolBAC >= 0, tolBAC < 1)
   stopifnot(toladj >= 0, toladj < 1)
@@ -70,7 +69,7 @@ O3prep <- function(data, k1=1, K=ncol(data), method="HDo",
   stopifnot((mx > 1 & length(tols) == 1)|(mx == 1 & ua <= 3))
   if (mx > 1) {
     boxplotLimit <- boxplotLimits[1]
-      Ax <- c(tolHDo*("HDo" %in% mm), tolPCS*("PCS" %in% mm),
+      Ax <- c(tolPCS*("PCS" %in% mm),
       tolBAC*("BAC" %in% mm), toladj*("adjOut" %in% mm),
       tolDDC*("DDC" %in% mm), tolMCD*("MCD" %in% mm))
       tols <- Ax[Ax>0]
