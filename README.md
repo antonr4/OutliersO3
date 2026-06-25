@@ -6,10 +6,9 @@ OutliersO3 is for visualising results of outlier analyses. Overview of
 Outliers (O3) plots show which cases are identified as potential
 outliers for different combinations of variables from a dataset.
 
-You can compare sets of outliers identified by up to six different
+You can compare sets of outliers identified by up to five different
 methods. You can also compare results for a single method at up to three
-different tolerance
-levels.
+different tolerance levels.
 
 ## Install in the usual way
 
@@ -32,15 +31,10 @@ the right of the plot.
 
 ``` r
 library(OutliersO3)
-#> Registered S3 method overwritten by 'GGally':
-#>   method from   
-#>   +.gg   ggplot2
 data(banknote, package="mclust")
 data <- banknote %>% filter(Status=="genuine") %>% select(-Status)
 pB <- O3prep(data, method="BAC", tols=c(0.05, 0.01, 0.001), boxplotLimits=c(6,10,12))
 pX <- O3plotT(pB)
-#> Warning: Vectorized input to `element_text()` is not officially supported.
-#> Results may be unexpected or may change in future versions of ggplot2.
 pX$gO3
 ```
 
