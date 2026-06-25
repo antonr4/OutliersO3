@@ -20,6 +20,8 @@ OutliersO3 is for visualising results of outlier analyses.  Overview of Outliers
 
 You can compare sets of outliers identified by up to five different methods.  You can also compare results for a single method at up to three different tolerance levels.
 
+(OutliersO3 used to offer a sixth method, HDoutliers.  The *HDoutliers* package is no longer maintained.)
+
 ## Install in the usual way
 install.packages("OutliersO3")
 
